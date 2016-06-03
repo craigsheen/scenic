@@ -5,6 +5,9 @@ set -e
 gem install bundler --conservative
 bundle check || bundle install
 
+# Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv
+mkdir -p .git/safe
+
 if [ -z "$CI" ]; then
   bundle exec appraisal install
 fi
